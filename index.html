@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Importe um CSV de pagamentos e confira indicadores de aprovação e estornos no navegador.">
+<title>Explorando Dados | Laboratório CSV</title>
+<link rel="stylesheet" href="style.css">
+<script src="laboratorio.js" defer></script>
+</head>
+<body>
+<header class="top"><div class="wrap nav"><a class="brand" href="./"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span> Explorando<span>Dados</span></a><span class="period">AMBIENTE DE TESTE</span></div></header>
+<main class="wrap lab">
+<section class="hero lab-hero" aria-labelledby="titulo">
+<p class="eyebrow">EXPLORANDO DADOS / PAGAMENTOS</p>
+<h1 id="titulo">Laboratório <strong>CSV<span>.</span></strong></h1>
+<p class="hero-copy">Importe uma base de pagamentos para conferir tentativas, aprovações e estornos por canal.</p>
+</section>
+<section class="panel lab-upload" aria-labelledby="titulo-importacao">
+<p class="eyebrow">01 / IMPORTAÇÃO</p><h2 id="titulo-importacao">Escolha seu arquivo</h2>
+<p id="ajuda" class="muted">Use um CSV de pagamentos no formato da base de exemplo. A leitura é feita no seu navegador.</p>
+<div class="sql-actions">
+<label for="arquivo" class="primary-action import-label">Importar CSV</label>
+<input class="sr-only" type="file" id="arquivo" accept=".csv,text/csv" aria-describedby="ajuda">
+<button type="button" class="download" id="exemplo">Carregar base de exemplo</button>
+<a class="download" href="explorando_dados_pagamentos_teste.csv" download>Baixar CSV de exemplo ↓</a>
+</div>
+<p class="muted lab-status" id="mensagem" role="status" aria-live="polite">Nenhum arquivo carregado.</p>
+</section>
+<section id="painel" class="lab-result" hidden aria-labelledby="titulo-indicadores">
+<div class="section-head"><div><p class="eyebrow">02 / RESULTADO</p><h2 id="titulo-indicadores">Indicadores da base</h2></div>
+<label for="canal" class="lab-filter">Canal <select id="canal"></select></label></div>
+<div id="indicadores" class="metrics lab-metrics"></div>
+<article class="panel details"><h3>Prévia das transações</h3><p id="quantidade-previa" class="muted"></p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Prévia das transações"><table>
+<thead><tr><th scope="col">ID da transação</th><th scope="col">Data</th><th scope="col">Canal</th><th scope="col">Status</th><th scope="col">Valor da transação</th><th scope="col">Valor estornado</th></tr></thead>
+<tbody id="linhas"></tbody></table></div></article>
+</section>
+</main>
+<footer><div class="wrap footer"><span>EXPLORANDO DADOS</span><span>Laboratório de importação · Marcos Feitosa</span></div></footer>
+</body>
+</html>
